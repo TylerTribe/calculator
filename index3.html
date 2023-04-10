@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style3.css">
+
+    <title>Calculator</title>
+</head>
+<body>
+    <main class="main">
+        <div class="calculator">
+          <div class="screen">
+            <div class="screen-last" data-previous-operation></div>
+            <div class="screen-current" data-current-operation>0</div>
+          </div>
+          <div class="buttons-grid">
+            <button class="btn span-2" data-all-clear>AC</button>
+            <button style="font-weight: 600;" class="btn span-2" data-delete>⌫</button>
+            <button class="btn" data-number="7">7</button>
+            <button class="btn" data-number="8">8</button>
+            <button class="btn" data-number="9">9</button>
+            <button class="btn" data-operation="/">/</button>
+            <button class="btn" data-number="4">4</button>
+            <button class="btn" data-number="5">5</button>
+            <button class="btn" data-number="6">6</button>
+            <button class="btn" data-operation="*">*</button>
+            <button class="btn" data-number="1">1</button>
+            <button class="btn" data-number="2">2</button>
+            <button class="btn" data-number="3">3</button>
+            <button class="btn" data-operation="-">−</button>
+            <button class="btn" id="pointBtn" data-number=".">.</button>
+            <button class="btn" data-number="0">0</button>
+            <button class="btn" id="equalsBtn" data-equals>=</button>
+            <button class="btn" data-operation="+">+</button>
+          </div>
+        </div>
+      </main>
+      
+      
+      <script src="scripts.js"></script>
+</body>
+</html>
