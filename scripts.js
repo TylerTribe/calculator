@@ -4,14 +4,14 @@ class Calculator {
       this.currentOperationTextElement = currentOperationTextElement;
       this.currentOperation = '';
     }
-  
+
     clear() {
         this.previousOperation = '';
         this.currentOperation = '';
         this.operation = undefined;
         this.runningTotal = 0;
       }
-      
+
 
     delete() {
         this.currentOperation = this.currentOperation.toString().slice(0, -1)
@@ -31,23 +31,23 @@ class Calculator {
         this.previousOperation = this.currentOperation;
         this.currentOperation = '';
     }
-    
+
     compute() {
         let computation;
         const current = parseFloat(this.currentOperation);
         if (isNaN(current)) return;
-    
+
         if (!this.previousOperation && !this.runningTotal) {
             this.runningTotal = current;
             this.currentOperation = '';
             return;
         }
-    
+
         if (!this.previousOperation) {
             this.previousOperation = this.currentOperation;
             this.currentOperation = '';
         }
-    
+
         const prev = parseFloat(this.previousOperation);
         switch (this.operation) {
             case "+":
@@ -69,30 +69,34 @@ class Calculator {
             default:
                 return;
         }
-    
+
         this.runningTotal = computation;
         this.currentOperation = '';
         this.operation = undefined;
         this.previousOperation = '';
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     getDisplay(number) {
         const stringNumber = number.toString();
         const integerDigits = parseFloat(stringNumber.split('.')[0]);
         const decimalDigits = stringNumber.split('.')[1];
-        const integerDisplay = isNaN(integerDigits) ? "" : integerDigits.toString();
-        if(decimalDigits != null) {
+        let integerDisplay;
+        if (isNaN(integerDigits)) {
+            integerDisplay = "";
+        } else {
+            integerDisplay = integerDigits.toString();
+        }
+        if (decimalDigits != null) {
             return `${integerDisplay}.${decimalDigits}`;
         } else {
-            return integerDisplay;
+            return `${integerDisplay}.0`;
         }
-
     }
-      
+    
     updateDisplay() {
         this.currentOperationTextElement.innerText = this.currentOperation;
         if (this.operation) {
@@ -135,7 +139,7 @@ equalsButton.addEventListener('click', button => {
     calculator.updateDisplay();
 });
 
-  
+
 
 allClearButton.addEventListener('click', button => {
   calculator.clear()
